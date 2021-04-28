@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget with NavigationStates {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueAccent,
+      color: Colors.white,
       child: Center(
         child: Text(
           'HomePage',

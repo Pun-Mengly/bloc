@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:shcool_system/pages/log_out.dart';
 
 import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';
@@ -122,15 +123,15 @@ class _SideBarState extends State<SideBar>
                       },
                     ),
                     MenuItem(
-                      icon: Icons.shopping_basket,
-                      title: 'My Order',
+                      icon: Icons.notifications,
+                      title: 'Notification',
                       onTap: () {
                         onIconPressed();
                         BlocProvider.of<NavigationBloc>(context)
                             .add(NavigationEvents.MyOrdersClickedEvent);
                       },
                     ),
-                    MenuItem(icon: Icons.card_giftcard, title: 'Wishlist'),
+                    MenuItem(icon: Icons.phone, title: 'Hot Line'),
                     Divider(
                       height: 64,
                       thickness: 0.5,
@@ -139,7 +140,15 @@ class _SideBarState extends State<SideBar>
                       endIndent: 36,
                     ),
                     MenuItem(icon: Icons.settings, title: 'Setting'),
-                    MenuItem(icon: Icons.exit_to_app, title: 'Logout'),
+                    MenuItem(
+                        icon: Icons.exit_to_app,
+                        title: 'Logout',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LogOut()),
+                          );
+                        }),
                   ],
                 ),
               )),
@@ -159,7 +168,8 @@ class _SideBarState extends State<SideBar>
                       child: AnimatedIcon(
                         progress: _animationController.view,
                         icon: AnimatedIcons.menu_close,
-                        color: Color(0xFF1BB5FD),
+                        // color: Color(0xFF1BB5FD),
+                        color: Colors.white,
                         size: 25,
                       ),
                     ),

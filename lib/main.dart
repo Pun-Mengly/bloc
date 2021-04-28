@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shcool_system/sidebar/sidebar_layout.dart';
+import 'package:shcool_system/splash_screen/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white, primaryColor: Colors.white),
-      home: SideBarLayout(),
+      home: SplashScreen(),
     );
   }
 }
