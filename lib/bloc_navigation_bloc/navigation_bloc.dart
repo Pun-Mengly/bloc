@@ -2,17 +2,19 @@ import 'package:bloc/bloc.dart';
 
 import '../pages/home_page.dart';
 import '../pages/my_account_page.dart';
-import '../pages/my_order_page.dart';
+import '../pages/result_exam_page.dart';
 
 enum NavigationEvents {
   HomePageClickedEvent,
-  MyAccountClickedEvent,
-  MyOrdersClickedEvent,
+  AccountClickedEvent,
+  ResultExamClickedEvent,
 }
 
 abstract class NavigationStates {}
 
 class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
+  NavigationBloc(NavigationStates initialState) : super(initialState);
+
   @override
   NavigationStates get initialState => HomePage();
 
@@ -22,11 +24,11 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
       case NavigationEvents.HomePageClickedEvent:
         yield HomePage();
         break;
-      case NavigationEvents.MyAccountClickedEvent:
+      case NavigationEvents.AccountClickedEvent:
         yield AccountPage();
         break;
-      case NavigationEvents.MyOrdersClickedEvent:
-        yield OrderPage();
+      case NavigationEvents.ResultExamClickedEvent:
+        yield ResultExam();
         break;
     }
   }

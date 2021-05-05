@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shcool_system/pages/log_out.dart';
 
 import '../bloc_navigation_bloc/navigation_bloc.dart';
+import '../pages/log_out.dart';
 import '../sidebar/menu_item.dart';
 
 class SideBar extends StatefulWidget {
@@ -78,7 +78,7 @@ class _SideBarState extends State<SideBar>
                     ),
                     ListTile(
                       title: Text(
-                        'Mengly',
+                        'Programmer'.toUpperCase(),
                         style: TextStyle(
                             fontWeight: FontWeight.w800,
                             color: Colors.white,
@@ -119,19 +119,19 @@ class _SideBarState extends State<SideBar>
                       onTap: () {
                         onIconPressed();
                         BlocProvider.of<NavigationBloc>(context)
-                            .add(NavigationEvents.MyAccountClickedEvent);
+                            .add(NavigationEvents.AccountClickedEvent);
                       },
                     ),
                     MenuItem(
-                      icon: Icons.notifications,
-                      title: 'Notification',
+                      icon: Icons.list_alt,
+                      title: 'Result Exam',
                       onTap: () {
                         onIconPressed();
                         BlocProvider.of<NavigationBloc>(context)
-                            .add(NavigationEvents.MyOrdersClickedEvent);
+                            .add(NavigationEvents.ResultExamClickedEvent);
                       },
                     ),
-                    MenuItem(icon: Icons.phone, title: 'Hot Line'),
+                    MenuItem(icon: Icons.notifications, title: 'Notification'),
                     Divider(
                       height: 64,
                       thickness: 0.5,
@@ -141,14 +141,15 @@ class _SideBarState extends State<SideBar>
                     ),
                     MenuItem(icon: Icons.settings, title: 'Setting'),
                     MenuItem(
-                        icon: Icons.exit_to_app,
-                        title: 'Logout',
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => LogOut()),
-                          );
-                        }),
+                      icon: Icons.exit_to_app,
+                      title: 'Logout',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LogOut()),
+                        );
+                      },
+                    ),
                   ],
                 ),
               )),
@@ -168,8 +169,7 @@ class _SideBarState extends State<SideBar>
                       child: AnimatedIcon(
                         progress: _animationController.view,
                         icon: AnimatedIcons.menu_close,
-                        // color: Color(0xFF1BB5FD),
-                        color: Colors.white,
+                        color: Color(0xFF1BB5FD),
                         size: 25,
                       ),
                     ),
